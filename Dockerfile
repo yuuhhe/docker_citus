@@ -1,6 +1,12 @@
 FROM postgres:9.6.1
 MAINTAINER yuuhhe
 
+# install curl
+RUN apt-get update
+RUN apt-get install -y --no-install-recommends \
+       ca-certificates \
+       curl \
+
 # Add Citus repository for package manager
 RUN curl https://install.citusdata.com/community/deb.sh | bash
 
